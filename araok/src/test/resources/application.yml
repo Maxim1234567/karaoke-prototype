@@ -1,0 +1,18 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:postgresql://localhost:5433/araok-test
+    username: araok
+    password: araok
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+jwt:
+  secret:
+    access: WtGLdEupIdUAVnTJLxwZ11JfWUzZBqOVpHGA4jGflsp2NmHSF2Zb22XJPugJGcsS4GSGJwZEEkJLn8ARgRTyqw==
+    refresh: 4W/mKXr4XJBqCgfbA9wZnf6BnwOVCYT4Yo+uLEY4LdDpm9AYj0lvuMS7mZ1YMaP1jl3XDdFnsglxQBpht7TkRw==

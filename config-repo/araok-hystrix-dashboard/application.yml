@@ -1,0 +1,23 @@
+server:
+  port: 8789
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+turbine:
+  cluster-name-expression: new String("default")
+  app-config: araok-authorization-service
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${MY_EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka}
