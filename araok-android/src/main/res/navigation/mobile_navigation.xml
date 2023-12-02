@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/homepage">
+
+    <fragment
+        android:id="@+id/homepage"
+        android:name="ru.araok.presentation.homepage.HomePageFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home_page">
+
+        <action
+            android:id="@+id/homepage_to_video_page"
+            app:destination="@+id/video_page"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/search"
+        android:name="ru.araok.presentation.search.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/search_to_vide_page"
+            app:destination="@+id/video_page"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/vocabulary"
+        android:name="ru.araok.presentation.vocabulary.VocabularyFragment"
+        android:label="@string/vocabulary"
+        tools:layout="@layout/fragment_vocabulary">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_video"
+        android:name="ru.araok.presentation.addvideopage.VideoPageFragment"
+        android:label="@string/add_video"
+        tools:layout="@layout/fragment_add_video_page">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="ru.araok.presentation.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/language"
+        android:name="ru.araok.presentation.language.LanguageActivity"
+        android:label="@string/language"
+        tools:layout="@layout/activity_language">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/video_page"
+        android:name="ru.araok.presentation.videopage.VideoPageFragment"
+        android:label="VideoPage"
+        tools:layout="@layout/fragment_video_page">
+
+        <argument
+            android:name="contentId"
+            app:argType="long"/>
+
+        <action
+            android:id="@+id/video_page_to_mark_page"
+            app:destination="@+id/mark_page"/>
+
+        <action
+            android:id="@+id/video_page_to_subtitle_dialog"
+            app:destination="@+id/subtitle_dialog"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mark_page"
+        android:name="ru.araok.presentation.markpage.MarkPageFragment"
+        android:label="Marks"
+        tools:layout="@layout/fragment_mark_page">
+
+        <argument
+            android:name="contentId"
+            app:argType="long"/>
+
+        <argument
+            android:name="pathVideo"
+            app:argType="string"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="ru.araok.presentation.registration.RegistrationFragment"
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration">
+
+        <action
+            android:id="@+id/registration_to_profile"
+            app:destination="@+id/profile"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/authorization"
+        android:name="ru.araok.presentation.authorization.AuthorizationFragment"
+        android:label="Authorization"
+        tools:layout="@layout/fragment_authorization">
+
+        <action
+            android:id="@+id/authorization_to_profile"
+            app:destination="@+id/profile"/>
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/subtitle_dialog"
+        android:name="ru.araok.presentation.subtitle.SubtitleDialogFragment"
+        tools:layout="@layout/fragment_dialog_subtitle">
+
+        <argument
+            android:name="contentId"
+            app:argType="long"/>
+
+    </dialog>
+
+</navigation>

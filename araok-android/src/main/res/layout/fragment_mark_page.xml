@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_mark"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/newMark"
+        app:layout_constraintBottom_toBottomOf="@+id/newMark"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/newMark"
+        app:layout_constraintLeft_toRightOf="@+id/header"
+        app:layout_constraintRight_toLeftOf="@+id/newMark"
+        app:layout_constraintBottom_toBottomOf="@+id/newMark"
+        android:text="@string/save"/>
+
+    <ImageView
+        android:id="@+id/newMark"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/add_mark"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="header, newMark"/>
+
+    <ScrollView
+        android:id="@+id/svNewMarks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/barrier"
+        app:layout_constraintBottom_toTopOf="@+id/videoPlayer"
+        app:layout_constraintVertical_weight="8">
+        <LinearLayout
+            android:id="@+id/llNewMarks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:orientation="vertical"/>
+    </ScrollView>
+
+    <ru.araok.custom.VideoPlayerMinimal
+        android:id="@+id/videoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/svNewMarks"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_weight="3"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:alpha="0.5"
+        android:layout_gravity="center"
+        android:visibility="visible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

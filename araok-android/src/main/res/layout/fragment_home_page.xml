@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="40dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".presentation.homepage.HomePageFragment">
+
+        <ru.araok.custom.RecyclerInfo
+            android:id="@+id/allLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ru.araok.custom.RecyclerInfo
+            android:id="@+id/newLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ru.araok.custom.RecyclerInfo
+            android:id="@+id/popularLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ru.araok.custom.RecyclerInfo
+            android:id="@+id/recommendedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</ScrollView>

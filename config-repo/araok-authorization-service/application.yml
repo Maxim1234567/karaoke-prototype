@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    url: ${MY_SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/araok}
+    username: araok
+    password: araok
+    driver-class-name: org.postgresql.Driver
+
+management:
+  zipkin:
+    tracing:
+      endpoint: ${MY_MANAGEMENT_ZIPKIN_TRACING_ENDPOINT:http://localhost:9411/api/v2/spans}
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+  pattern:
+    level: "%5p [${spring.application.name},%X{traceId:-},%X{spanId:-}]"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    service-url:
+      defaultZone: ${MY_EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka}
+
+hystrix:
+  command:
+    login:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+server:
+  port: 0
+
+jwt:
+  secret:
+    access: WtGLdEupIdUAVnTJLxwZ11JfWUzZBqOVpHGA4jGflsp2NmHSF2Zb22XJPugJGcsS4GSGJwZEEkJLn8ARgRTyqw==
+    refresh: 4W/mKXr4XJBqCgfbA9wZnf6BnwOVCYT4Yo+uLEY4LdDpm9AYj0lvuMS7mZ1YMaP1jl3XDdFnsglxQBpht7TkRw==
